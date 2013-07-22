@@ -1,0 +1,160 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Free Fashion Website Template | Home :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="jquery.calendars.picker.css">
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+	<script type="text/javascript" src="engine1/jquery.js"></script>
+<style>
+		body, td, th {font-family: verdana; font-size: 12px; color: #FFFFFF;}
+		#timetable {border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 16em;}
+		#timetable td, #timetable th {border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #CCCCCC;}
+		#timetable th {color:black; text-align: center; font-weight: bold; background-color: #F8F7F4;}
+	</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.calendars.js"></script>
+<script type="text/javascript" src="jquery.calendars.plus.js"></script>
+<script type="text/javascript" src="jquery.calendars.picker.js"></script>
+<script type="text/javascript" src="../PrayTimes.js"></script>
+<!--script type="text/javascript" src="jquery.calendars.picker.ext.js"></script--><!-- Include for ThemeRoller styling -->
+<script type="text/javascript" src="jquery.calendars.islamic.js"></script>
+<script type="text/javascript">
+$(function() {
+//	$.calendars.picker.setDefaults({renderer: $.calendars.picker.themeRollerRenderer}); // Requires jquery.calendars.picker.ext.js
+	//$('#popupDatepicker').calendarsPicker({calendar: $.calendars.instance('islamic')});
+	$('#inlineDatepicker').calendarsPicker({calendar: $.calendars.instance('islamic'), onSelect: showDate});
+});
+
+function showDate(date) {
+	alert('The date chosen is ' + date);
+}</script>
+</head>
+<body>
+
+
+
+<div class="wrap">
+	<div class="header">
+	   <div class="nav">
+        <ul>
+            <li ><a href="index.html">Home</a></li>
+            <li class="active"><a href="gal2.html">Gallery</a></li>
+            <li><a href="vid1.html">Videos</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
+    <div class="logo"><div id="wowslider-container1">
+	<div class="ws_images"><ul>
+<li><img src="data1/images/download_1.jpg" alt="download (1)" title="download (1)" id="wows1_0"/></li>
+<li><img src="data1/images/images_1.jpg" alt="images (1)" title="images (1)" id="wows1_1"/></li>
+<li><img src="data1/images/images_2.jpg" alt="images (2)" title="images (2)" id="wows1_2"/></li>
+<li><img src="data1/images/images_3.jpg" alt="images (3)" title="images (3)" id="wows1_3"/></li>
+<li><img src="data1/images/images_4.jpg" alt="images (4)" title="images (4)" id="wows1_4"/></li>
+<li><img src="data1/images/images_5.jpg" alt="images (5)" title="images (5)" id="wows1_5"/></li>
+<li><img src="data1/images/images.jpg" alt="images" title="images" id="wows1_6"/></li>
+</ul></div>
+<span class="wsl"><a href="http://wowslider.com">Picture Slideshow</a> by WOWSlider.com v3.9</span>
+	<div class="ws_shadow"></div>
+	</div>
+	<script type="text/javascript" src="engine1/wowslider.js"></script>
+	<script type="text/javascript" src="engine1/script.js"></script></div>
+ </div>
+	<!--<div class="main-body">
+    	<div id="slider">
+				
+				<a href="#" target="_blank">
+					<!--<img src="images/img-0.jpg" alt="#" /><div class="clear"></div>
+				</a>
+			<div class="clear"></div>
+			</div>
+    	<div class="hr"></div>	
+				<div class="grids">
+			<ul>
+			<li>
+				<!--<img src="images/img-2.jpg">
+				<div><h3>Islamic Calender</h3>
+				</div>
+								<div id="inlineDatepicker"></div>
+
+			</li>
+			<li>
+				<!--<img src="images/img-3.jpg">
+				<div><h3>Prayer TimeTable</h3>
+				<p><button onclick="getLocation()">Click to get the timings</button></p>
+				<p id="demo"><span style="color:#FFFFFF">Your current coordinates</span></p>
+				<div align="center" id="table" style="color:#FFFFFF"></div>
+				
+				</div>
+				<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+var date = new Date(); // today
+	var times = prayTimes.getTimes(date, [position.coords.latitude, position.coords.longitude],'auto','auto','12h');
+	var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha', 'Midnight'];
+
+	var html = '<table id="timetable">';
+	html += '<tr><th colspan="2">'+ date.toLocaleDateString()+ '</th></tr>';
+	for(var i in list)	{
+		html += '<tr><td>'+ list[i]+ '</td>';
+		html += '<td>'+ times[list[i].toLowerCase()]+ '</td></tr>';
+	}
+	html += '</table>';
+	document.getElementById('table').innerHTML = html;  
+  }
+  
+</script>
+			</li>
+			<li class="last">
+				<!--<img src="images/img-4.jpg">
+				<div><h3>Lorem Ipsum is simply</h3>
+				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit ame</p></div>
+				
+			</li>
+			<div class="clear"></div>
+			</ul>
+		</div>
+		
+	<!--	<div class="clear"></div>
+		<div class="text-box">
+			<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+		</div>
+    
+	
+	<div class="hr"></div>
+<div class="footer">
+	<ul>
+		<li><a href="index.html">Home</a></li>
+            <li><a href="single.html">About</a></li>
+            <li><a href="single.html">Services</a></li>
+            <li><a href="feedback.html">Contact</a></li>
+	</ul>
+</div>-->
+    <div class="copy">
+    	<p>&copy; 2013 rights Reseverd | Design by Shaad Khan</p>
+    </div>
+    
+
+</div>
+</body>
+</html>
